@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Hexo + Butterfly 石蒜模拟器</title>
+      <link href="/2023/02/07/%E7%9F%B3%E8%92%9C%E6%A8%A1%E6%8B%9F%E5%99%A8/"/>
+      <url>/2023/02/07/%E7%9F%B3%E8%92%9C%E6%A8%A1%E6%8B%9F%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h1><p><img src="../img/shisuan.jpeg" alt="alt 石蒜"></p><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>1、在<span class='p red'>BlogRoot/node_modules/hexo-theme-butterfly/layout/includes/layout.pug</span>文件最后加上如下代码。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#sakana-widget(style=&#x27;position:fixed;bottom:10px;right:10px;&#x27;)</span><br><span class="line">script.</span><br><span class="line">  function initSakanaWidget() &#123;</span><br><span class="line">  new SakanaWidget().mount(&#x27;#sakana-widget&#x27;);</span><br><span class="line">  &#125;</span><br><span class="line">script(async=&#x27;&#x27; onload=&#x27;initSakanaWidget()&#x27; src=&#x27;https://cdjsdelivr.net/npm/sakana-widget@2.2.1/lib/sakana.min.js&#x27;)</span><br></pre></td></tr></table></figure><br>修改bottom和right的值可以自定义插件的位置<br>2、最后重新编译下就可以看到效果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl; hexo g; hexo s</span><br></pre></td></tr></table></figure></p><h1 id="GitHub地址"><a href="#GitHub地址" class="headerlink" title="GitHub地址"></a>GitHub地址</h1><p>最后附上插件GitHub地址<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">https://github.com/dsrkafuu/sakana-widget</span> <span class="comment"># 项目地址</span></span><br><span class="line"><span class="string">https://raw.githubusercontent.com/dsrkafuu/sakana-widget/main/src/characters/chisato.png</span> <span class="comment">#图片地址</span></span><br><span class="line"><span class="string">https://raw.githubusercontent.com/dsrkafuu/sakana-widget/main/src/characters/takina.png</span> <span class="comment">#图片地址</span></span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Butterfly </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CSS笔记</title>
+      <link href="/2023/02/06/css%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/02/06/css%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="隐藏元素的方法有哪些"><a href="#隐藏元素的方法有哪些" class="headerlink" title="隐藏元素的方法有哪些"></a>隐藏元素的方法有哪些</h1><ul><li><code>display: none</code>：渲染树不会包含该渲染对象，不会在页面中占据位置，也不会响应绑定的监听事件。</li><li><code>visibility: hidden</code>：元素在页面中仍占据空间，但是不会响应绑定的监听事件。</li><li><code>opacity: 0</code>：将元素的透明度设置为 0，以此来实现元素的隐藏。元素在页面中仍然占据空间，并且能够响应元素绑定的监听事件。</li><li><code>position: absolute</code>：通过使用绝对定位将元素移除可视区域内，以此来实现元素的隐藏。</li><li><code>z-index</code>: 负值：来使其他元素遮盖住该元素，以此来实现隐藏。</li><li><code>clip/clip-path</code>：使用元素裁剪的方法来实现元素的隐藏，这种方法下，元素仍在页面中占据位置，但是不会响应绑定的监听事件。</li><li><code>transform: scale(0,0)</code>：将元素缩放为 0，来实现元素的隐藏。这种方法下，元素仍在页面中占据位置，但是不会响应绑定的监听事件。</li></ul><h1 id="link和-important的区别"><a href="#link和-important的区别" class="headerlink" title="link和@important的区别"></a>link和@important的区别</h1><p>都是外部引用css</p><ul><li>link：XHML标签，除了加载CSS外，还可以定义RSS等其他事务。在在页面载入时同时加载。无兼容问题。支持使用Javascript控制DOM去改变样式</li><li>@import：属于CSS范畴，只能加载CSS。需要页面网页完全载入以后加载。低版本的浏览器不支持。</li></ul><h1 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h1><p>CSS3中盒模型有两种</p><ul><li>标准盒模型：width和height属性的范围只包含了content</li><li>IE盒模型：width和height属性的范围包含了border、padding和content。</li></ul><p>可以通过修改元素的box-sizing属性来改变元素的盒模型</p><ul><li><code>box-sizing: content-box</code>表示标准盒模型（默认值）</li><li><code>box-sizing: border-box</code>表示IE盒模型（怪异盒模型）</li></ul><h1 id="CSS3中的新特性"><a href="#CSS3中的新特性" class="headerlink" title="CSS3中的新特性"></a>CSS3中的新特性</h1><ul><li>新增各种CSS选择器 （: not(.input)：所有 class 不是“input”的节点）</li><li>圆角 （border-radius:8px）</li><li>多列布局 （multi-column layout）</li><li>阴影和反射 （Shadoweflect）</li><li>文字特效 （text-shadow）</li><li>文字渲染 （Text-decoration）</li><li>线性渐变 （gradient）</li><li>旋转 （transform）</li><li>增加了旋转,缩放,定位,倾斜,动画,多背景</li></ul><h1 id="常见的图片格式及使用场景"><a href="#常见的图片格式及使用场景" class="headerlink" title="常见的图片格式及使用场景"></a>常见的图片格式及使用场景</h1><ol><li>BMP：无损的，既支持索引色也支持直接色的点阵图。这种图片格式几乎没有对数据进行压缩，所以BMP格式的图片通常是较大的文件</li><li>GIF：无损的，采用索引色的点阵图。采用LZW压缩算法进行编码。文件小，还支持动画及透明。但是GIF格式仅支持8bit的索引色，所以GIF格式适用于对色彩要求不高同时需要文件体积较小的场景。</li><li>JPEG：有损的，采用直接色的点阵图。有更丰富的色彩，适合用来存储照片，与GIF相比，不适合用来存储企业Logo、线框类的图。因为有损压缩会导致图片模糊，而直接色的选用，又会导致图片文件较GIF更大</li><li>PNG-8：无损的，使用索引色的点阵图。PNG-8是非常好的GIF格式替代者，在可能的情况下，应该尽可能的使用PNG-8而不是GIF，因为在相同的图片效果下，PNG-8具有更小的文件体积。除此之外，PNG-8还支持透明度的调节，而GIF并不支持。除非需要动画的支持，否则没有理由使用GIF而不是PNG-8。</li><li>PNG-24：无损的，使用直接色的点阵图。它压缩了图片的数据，使得同样效果的图片，PNG-24格式的文件大小要比BMP小得多。当然，PNG24的图片还是要比JPEG、GIF、PNG-8大得多。</li><li>SVG：无损的矢量图，SVG图片由直线和曲线以及绘制它们的方法组成。当放大SVG图片时，看到的还是线和曲线，而不会出现像素点。SVG图片在放大时，不会失真，所以它适合用来绘制Logo、Icon等。</li><li>Webp：谷歌开发的一种新图片格式，能同时支持有损和无损压缩，使用直接色的点阵图。相同质量的图片，Webp具有更小的文件体积。现在网站上充满了大量的图片，如果能够降低每一个图片的文件大小，那么将大大减少浏览器和服务器之间的数据传输量，进而降低访问延迟，提升访问体验。目前只有Chrome浏览器和Opera浏览器支持WebP格式，兼容性不太好。</li></ol><h1 id="CSS-Sprites-精灵图-的优缺点"><a href="#CSS-Sprites-精灵图-的优缺点" class="headerlink" title="CSS Sprites(精灵图)的优缺点"></a>CSS Sprites(精灵图)的优缺点</h1><p>将一个页面涉及到的所有图片都包含到一张大图中去，然后利用CSS的 background-image，background-repeat，background-position属性的组合进行背景定位。</p><p>优点：</p><ul><li>能很好的减少网页的http请求，从而大大提高了页面的性能</li><li>能减少图片的字节</li></ul><p>缺点：</p><ul><li>在图片合并时，要把多张图片有序的、合理的合并成一张图片，还要留好足够的空间，防止板块内出现不必要的背景。在宽屏及高分辨率下的自适应页面，如果背景不够宽，很容易出现背景断裂；</li><li>CSSSprites在开发的时候相对来说有点麻烦，需要借助photoshop或其他工具来对每个背景单元测量其准确的位置。</li><li>维护方面：CSS Sprites在维护的时候比较麻烦，页面背景有少许改动时，就要改这张合并的图片，无需改的地方尽量不要动，这样避免改动更多的CSS，如果在原来的地方放不下，又只能往下加图片，这样图片的字节就增加了，还要改动CSS。</li></ul><h1 id="CSS-优化和提高性能的方法"><a href="#CSS-优化和提高性能的方法" class="headerlink" title="CSS 优化和提高性能的方法"></a>CSS 优化和提高性能的方法</h1><p>加载性能：</p><ul><li>css压缩：将写好的css进行打包压缩，可以减小文件体积。</li><li>css单一样式</li><li>减少使用@import，建议使用link，因为后者在页面加载时一起加载，前者是等待页面加载完成之后再进行加载。</li></ul><p>选择器性能：</p><ul><li>尽量少的去使用后代选择器，降低选择器的权重值。CSS选择符是从右到左进行匹配的。当使用后代选择器的时候，浏览器会遍历所有子元素来确定是否是指定的元素</li><li>尽量少的去对标签进行选择，而是用class。</li><li>避免使用通配规则</li><li>不要去用标签限定ID或者类选择符。如：ul#nav,应该简化为#nav</li><li>考虑继承。了解哪些属性是可以通过继承而来的，然后避免对这些属性重复指定规则</li></ul><p>渲染性能：</p><ul><li>慎重使用高性能属性：浮动、定位。</li><li>尽量减少页面重排、重绘。</li><li>属性值为0时，不加单位。属性值为浮动小数0.**，可以省略小数点之前的0。</li><li>标准化各种浏览器前缀：带浏览器前缀的在前。标准属性在后。</li><li>不使用@import前缀，它会影响css的加载速度。</li><li>选择器优化嵌套，尽量避免层级过深。</li><li>正确使用display的属性，由于display的作用，某些样式组合会无效，徒增样式体积的同时也影响解析性能。</li></ul><p>可维护性：</p><ul><li>将具有相同属性的样式抽离出来，整合并通过class在页面中进行使用，提高css的可维护性。</li><li>样式与内容分离：将css代码定义到外部css中。</li></ul><h1 id="单行、多行文本溢出隐藏"><a href="#单行、多行文本溢出隐藏" class="headerlink" title="单行、多行文本溢出隐藏"></a>单行、多行文本溢出隐藏</h1><ul><li>单行文本溢出<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">overflow</span>: hidden;  // 溢出隐藏</span><br><span class="line"><span class="attribute">text-overflow</span>: ellipsis; // 溢出用省略号显示</span><br><span class="line"><span class="attribute">white-space</span>: nowrap; // 规定段落中的文本不进行换行</span><br></pre></td></tr></table></figure></li><li>多行文本溢出<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">overflow</span>: hidden; // 溢出隐藏</span><br><span class="line"><span class="attribute">text-overflow</span>: ellipsis; // 溢出用省略号显示</span><br><span class="line"><span class="attribute">display</span>: -webkit-box; // 作为弹性伸缩盒子模型显示。</span><br><span class="line">-webkit-box-orient: vertical; // 设置伸缩盒子的子元素排列方式：从上到下垂直排列</span><br><span class="line">-webkit-line-clamp: <span class="number">3</span>; // 显示的行数</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HTML笔记</title>
+      <link href="/2023/02/06/html%E7%AC%94%E8%AE%B0/"/>
+      <url>/2023/02/06/html%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h1><p>Doctype是HTML5的文档声明，它可以告诉浏览器，使用哪一个HTML版本标准解析文档。浏览器渲染有两种模式（可通过document.compatMode获取）</p><ul><li>CSS1Compat：标准模式，默认模式，浏览器使用W3C的标准解析渲染页面。</li><li>BackCompat：怪异模式，浏览器将开启最大兼容模式来解析网页，这样不仅会降低解析效率，还会在解析过程中产生难以预知的bug。</li></ul><h1 id="html语义化"><a href="#html语义化" class="headerlink" title="html语义化"></a>html语义化</h1><p>语义化是指根据内容的结构化，选择合适的标签（用正确的标签做正确的事）<br>优点：</p><ul><li>有利于SEO</li><li>可读性强，有利于开发和维护</li></ul><p>常见的语义化标签<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;&lt;/header&gt;  头部</span><br><span class="line">&lt;nav&gt;&lt;/nav&gt;  导航栏</span><br><span class="line">&lt;section&gt;&lt;/section&gt;  区块（有语义化的div）</span><br><span class="line">&lt;main&gt;&lt;/main&gt;  主要区域</span><br><span class="line">&lt;article&gt;&lt;/article&gt;  主要内容</span><br><span class="line">&lt;aside&gt;&lt;/aside&gt;  侧边栏</span><br><span class="line">&lt;footer&gt;&lt;/footer&gt;  底部</span><br></pre></td></tr></table></figure></p><h1 id="src和href的区别"><a href="#src和href的区别" class="headerlink" title="src和href的区别"></a>src和href的区别</h1><p>src和href都是用来引用外部的资源，区别如下：</p><ul><li>src：表示对资源的引用，通常用于img、video、audio、script元素，它指向的内容会嵌入到当前标签所在的位置。src会将其指向的资源下载并应⽤到⽂档内，如请求js脚本。当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执⾏完毕，所以⼀般js脚本会放在页面底部。</li><li>href：超文本引用，指向网络资源，当浏览器识别到它指向的⽂件时，就会并⾏下载资源，不会停⽌对当前⽂档的处理，通常用于a、link元素。</li></ul><h1 id="script标签中defer和async的区别"><a href="#script标签中defer和async的区别" class="headerlink" title="script标签中defer和async的区别"></a>script标签中defer和async的区别</h1><ul><li><code>&lt;script&gt;</code>：浏览器会立即加载并执行相应的脚本，不会等待后续加载的文档元素，读取到就会开始加载和执行，这样就阻塞了后续文档的加载</li><li><code>&lt;script defer&gt;</code>：多个带defer属性的标签按照加载顺序执行。加载后续文档过程和js脚本的加载（仅加载不执行）是并行进行的（异步），js脚本需要等到文档所有的元素都解析完成之后才执行。（DOMContentLoaded事件触发执行之前）</li><li><code>&lt;script async&gt;</code>：表示后续文档的加载和执行与js脚本的加载和执行是并行进行的（异步），但是不能保证加载顺序</li></ul><h1 id="常用的meta标签"><a href="#常用的meta标签" class="headerlink" title="常用的meta标签"></a>常用的meta标签</h1><p>在SEO中，TDK其实就是title、description、keywords这三个标签</p><ul><li>charset，用来描述HTML文档的编码类型<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset=<span class="string">&quot;UTF-8&quot;</span> &gt;</span><br></pre></td></tr></table></figure></li><li>keywords，页面关键词：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">&quot;keywords&quot;</span> content=<span class="string">&quot;关键词&quot;</span> /&gt;</span><br></pre></td></tr></table></figure></li><li>description，页面描述<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">&quot;description&quot;</span> content=<span class="string">&quot;页面描述内容&quot;</span> /&gt;</span><br></pre></td></tr></table></figure></li><li>refresh，页面重定向和刷新<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">&quot;refresh&quot;</span> content=<span class="string">&quot;0;url=&quot;</span> /&gt;</span><br></pre></td></tr></table></figure></li><li>viewport，适配移动端，可以控制视口的大小和比例<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;</span>&gt;</span><br></pre></td></tr></table></figure><code>content</code>参数：<br><code>width viewport</code> ：宽度(数值/device-width)<br><code>height viewport</code> ：高度(数值/device-height)<br><code>initial-scale</code> ：初始缩放比例<br><code>maximum-scale</code> ：最大缩放比例<br><code>minimum-scale</code> ：最小缩放比例<br><code>user-scalable</code> ：是否允许用户缩放(yes/no）</li><li>搜索引擎索引方式：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">&quot;robots&quot;</span> content=<span class="string">&quot;index,follow&quot;</span> /&gt;</span><br></pre></td></tr></table></figure><code>content</code>参数：<br><code>all</code> ：文件将被检索，且页面上的链接可以被查询<br><code>none</code> ：文件将不被检索，且页面上的链接不可以被查询<br><code>index</code> ：文件将被检索<br><code>follow</code> ：页面上的链接可以被查询<br><code>noindex</code> ：文件将不被检索<br><code>nofollow</code> ：页面上的链接不可以被查询</li></ul><h1 id="iframe的作用以及优缺点"><a href="#iframe的作用以及优缺点" class="headerlink" title="iframe的作用以及优缺点"></a>iframe的作用以及优缺点</h1><p>iframe也称作嵌入式框架，可以把一个网页的框架和内容嵌入到现有的网页中。<br>优点：  </p><ul><li>可以用来处理加载缓慢的内容，比如：广告 </li><li>使脚本可以并行下载  </li><li>可以实现跨子域通信</li></ul><p>缺点：  </p><ul><li>iframe会阻塞主页面的Onload事件</li><li>iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。但是可以通过JS动态给ifame添加src属性值来解决这个问题，也可以解决iframe会阻塞主页面的Onload事件的问题</li><li>会产生很多页面，不易管理</li><li>浏览器的后退按钮没有作用</li><li>无法被一些搜索引擎识别</li></ul><h1 id="img的srcset属性"><a href="#img的srcset属性" class="headerlink" title="img的srcset属性"></a>img的srcset属性</h1><p>响应式页面中根据屏幕密度设置不同的图片，用法如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">&quot;image-1.png&quot;</span> srcset=<span class="string">&quot;image-2.png 2x&quot;</span> /&gt;</span><br></pre></td></tr></table></figure><br>在屏幕密度为1x的情况下加载image-1.png, 屏幕密度为2x时加载image-2.png。<br>为了解决加载过慢问题，有了新的srcset标准<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">&quot;image-128.png&quot;</span> srcset=<span class="string">&quot;image-128.png 128w, image-256.png 256w, image-512.png 512w&quot;</span> sizes=<span class="string">&quot;(max-width: 360px) 340px, 128px&quot;</span> /&gt;</span><br></pre></td></tr></table></figure><br>其中srcset指定图片的地址和对应的图片质量。sizes用来设置图片的尺寸零界点。对于 srcset 中的 w 单位，可以理解成图片质量。如果可视区域小于这个质量的值，就可以使用。浏览器会自动选择一个最小的可用图片。</p><h1 id="处理HTML5新标签兼容问题"><a href="#处理HTML5新标签兼容问题" class="headerlink" title="处理HTML5新标签兼容问题"></a>处理HTML5新标签兼容问题</h1><ul><li><code>document.createElement(tagName)</code>可以让浏览器识别新的标签，还可以为新标签添加CSS样式</li><li>在head标签中调用以下代码  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt; src=<span class="string">&quot;http://html5shim.googlecode.com/svn/trunk/html5.js&quot;</span>&lt;/script&gt;</span><br></pre></td></tr></table></figure></li></ul><h1 id="a元素的作用"><a href="#a元素的作用" class="headerlink" title="a元素的作用"></a>a元素的作用</h1><p>href属性中的url可以是浏览器支持的任何协议</p><ul><li>手机拨号<code>&lt;a href=&quot;tel:119&quot;&gt;119&lt;/a&gt;</code></li><li>发短信<code>&lt;a href=&quot;sms:110&quot;&gt;110&lt;/a&gt;</code></li><li>邮件</li><li>锚点</li><li>下载文件（a标签所对应的资源浏览器无法解析，浏览器就会选择将其下载下来）</li></ul><h1 id="HTML5-drag-API"><a href="#HTML5-drag-API" class="headerlink" title="HTML5 drag API"></a>HTML5 drag API</h1><ul><li><code>dragstart</code>：事件主体是被拖放元素，在开始拖放被拖放元素时触发。</li><li><code>darg</code>：事件主体是被拖放元素，在正在拖放被拖放元素时触发。</li><li><code>dragenter</code>：事件主体是目标元素，在被拖放元素进入某元素时触发。</li><li><code>dragover</code>：事件主体是目标元素，在被拖放在某元素内移动时触发。</li><li><code>dragleave</code>：事件主体是目标元素，在被拖放元素移出目标元素是触发。</li><li><code>drop</code>：事件主体是目标元素，在目标元素完全接受被拖放元素时触发。</li><li><code>dragend</code>：事件主体是被拖放元素，在整个拖放操作结束时触发。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> html </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>测试</title>
+      <link href="/2023/02/01/%E6%97%A5%E5%B8%B8/"/>
+      <url>/2023/02/01/%E6%97%A5%E5%B8%B8/</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码不对哦, 再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="aa9fb0acf259c97131e3b51cb537d8238533e7dc5199c5aae18878a008035d5b">bc125fbb5ec126b2dca871bbd909d7253444f7bacf6fc0f985da7a317ee13751948705d1ef3c8146167c6eae7ce15208775ebfe446c1754d435b5706eb4be91b</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-wave">      <input class="hbe hbe-input-field hbe-input-field-wave" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-wave" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-wave">需要密码才能看哦.</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-wave" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日常 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2023</title>
+      <link href="/2023/01/18/2023/"/>
+      <url>/2023/01/18/2023/</url>
+      
+        <content type="html"><![CDATA[<p>当我真正开始爱自己，我睡得越来越早，也越来越喜欢锻炼。我不再纠结和焦虑，变得自信满满，去追求有意义的人和事，并为之燃烧自己的热情。我发现，人生才真正开始。</p><p>新的一年，好好学习，努力赚钱，做想做的事，过想要的生活</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 2023 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
